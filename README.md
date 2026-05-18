@@ -127,3 +127,4 @@ TELEGRAM_BOT_TOKEN=your-telegram-bot-token
 - SQLite3 с async ORM (SQLAlchemy 2.0)
 - Модели: User, Task, Project, WorkGroup, TaskStatus
 - Иерархия пользователей через `created_by_id`
+# snick_active_bot
