@@ -1,0 +1,892 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #6b7280;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --bg-color: #f9fafb;
+    --card-bg: #ffffff;
+    --text-color: #111827;
+    --border-color: #e5e7eb;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Навбар */
+.navbar {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo-img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Форма входа */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 2rem 1rem;
+}
+
+.login-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--border-color);
+}
+
+.login-card h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.checkbox-group {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+    background: var(--bg-color);
+}
+
+.checkbox-label {
+    display: block;
+    padding: 0.35rem 0;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.checkbox-label input {
+    margin-right: 0.5rem;
+}
+
+.poll-settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.poll-settings > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.poll-settings label {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Кнопки */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+/* Табы */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--primary-color);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Заголовки секций */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* Карточки */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: card-appear 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge-primary {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.badge-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Модальное окно */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: var(--card-bg);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Утилиты */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+
+/* Таймлайн */
+.timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+@keyframes timeline-appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-item {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: timeline-appear 0.4s ease-out forwards;
+    opacity: 0;
+    width: 100%;
+    min-width: 0;
+}
+
+.timeline-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.timeline-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-item-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.timeline-item-meta {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.timeline-nudge-btn {
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.timeline-nudge-btn:hover {
+    opacity: 0.9;
+}
+
+/* Сетка: дата | трек (всё оставшееся место) | дата — линия не схлопывается */
+.timeline-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0 0.5rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+/* Трек — средняя колонка, всегда получает ширину от grid */
+.timeline-track {
+    position: relative;
+    min-width: 120px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Линия — блок в потоке, занимает всю ширину трека */
+.timeline-track-line {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #d1d5db;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.timeline-track-line--done {
+    background: var(--success-color, #10b981);
+}
+
+.timeline-bar-dot-done {
+    background: var(--success-color, #10b981);
+    box-shadow: 0 0 0 2px var(--success-color, #10b981);
+}
+
+.timeline-track .timeline-bar-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 1;
+}
+
+.timeline-bar-line {
+    flex: 1;
+    height: 3px;
+    background: var(--border-color);
+    min-width: 24px;
+}
+
+.timeline-bar-line.active {
+    background: var(--primary-color);
+}
+
+.timeline-bar-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: 2px solid var(--card-bg);
+    flex-shrink: 0;
+    cursor: default;
+    position: relative;
+}
+
+.timeline-bar-dot.active {
+    background: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.timeline-bar-dot.done {
+    background: var(--success-color);
+}
+
+.timeline-bar-dot.done.active {
+    box-shadow: 0 0 0 2px var(--success-color);
+}
+
+/* Белая точка на пройденном этапе: при наведении/клике видно, что писал пользователь в боте */
+.timeline-bar-dot.response {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    cursor: help;
+}
+
+.timeline-bar-dot.cancelled {
+    background: var(--danger-color);
+}
+
+.timeline-bar-dot[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.4rem 0.6rem;
+    background: #1f2937;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 10;
+}
+
+.timeline-bar-dot[data-tooltip]:hover::after {
+    opacity: 1;
+}
+
+.timeline-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--secondary-color);
+    margin-top: 0.25rem;
+    padding: 0 2px;
+}
+
+.timeline-bar-labels-zones {
+    display: flex;
+}
+
+.timeline-bar-labels-zones span {
+    min-width: 0;
+}
+
+.timeline-bar .timeline-date {
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+    align-self: center;
+    margin-right: 0.5rem;
+    max-width: 5.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.timeline-bar .timeline-date-end {
+    color: var(--danger-color);
+    font-weight: 500;
+    margin-left: 0.5rem;
+    margin-right: 0;
+    max-width: 5.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.timeline-poll-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.timeline-poll-label {
+    font-size: 0.7rem;
+    color: var(--secondary-color);
+}
+
+.timeline-poll-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    opacity: 0.7;
+    flex-shrink: 0;
+    cursor: help;
+    position: relative;
+}
+
+.timeline-poll-dot:hover {
+    opacity: 1;
+}
+
+.timeline-poll-dot[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.75rem;
+    background: #1f2937;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    white-space: normal;
+    max-width: 280px;
+    text-align: left;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 20;
+}
+
+.timeline-poll-dot[data-tooltip]:hover::after {
+    opacity: 1;
+}
+
+.timeline-filters {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.timeline-filters select {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Шоб не забыть — стикеры */
+.notes-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    padding: 0.5rem 0;
+    align-items: start;
+}
+
+@keyframes sticky-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) rotate(-2deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(var(--sticky-rotate, -1deg));
+    }
+}
+
+.sticky-note {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    min-width: 180px;
+    max-width: 320px;
+    padding: 1rem 1.125rem 1rem;
+    padding-top: 1.35rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+    position: relative;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    word-break: break-word;
+    white-space: pre-wrap;
+    animation: sticky-appear 0.35s ease-out forwards;
+}
+
+.sticky-note:hover {
+    transform: translateY(-3px) rotate(var(--sticky-rotate, -1deg));
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+}
+
+.sticky-note::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.sticky-note.sticky-yellow { background: linear-gradient(160deg, #fef9c3 0%, #fef08a 50%, #fde047 100%); --sticky-rotate: -1.2deg; }
+.sticky-note.sticky-pink { background: linear-gradient(160deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%); --sticky-rotate: 0.8deg; }
+.sticky-note.sticky-blue { background: linear-gradient(160deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%); --sticky-rotate: -0.6deg; }
+.sticky-note.sticky-green { background: linear-gradient(160deg, #d1fae5 0%, #a7f3d0 50%, #6ee7b7 100%); --sticky-rotate: 0.9deg; }
+.sticky-note.sticky-orange { background: linear-gradient(160deg, #ffedd5 0%, #fed7aa 50%, #fdba74 100%); --sticky-rotate: -0.9deg; }
+.sticky-note.sticky-lavender { background: linear-gradient(160deg, #ede9fe 0%, #ddd6fe 50%, #c4b5fd 100%); --sticky-rotate: 0.5deg; }
+
+.sticky-note .sticky-text {
+    flex: 0 1 auto;
+    margin-bottom: 0.75rem;
+}
+
+.sticky-note .sticky-actions {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.sticky-note:hover .sticky-actions {
+    opacity: 1;
+}
+
+.sticky-note .sticky-actions button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.72rem;
+    border: none;
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 500;
+}
+
+.sticky-note .sticky-actions button:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.sticky-note textarea {
+    width: 100%;
+    min-height: 2.5em;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    resize: none;
+    font: inherit;
+    outline: none;
+    overflow: hidden;
+}
+
+.sticky-note.add-new {
+    --sticky-rotate: 0deg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    width: 220px;
+    background: linear-gradient(160deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 2px dashed rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    color: var(--secondary-color);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.sticky-note.add-new:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: linear-gradient(160deg, #eef2ff 0%, #e0e7ff 100%);
+}
+
+.sticky-note.add-new::before {
+    display: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        overflow-x: auto;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .notes-board .sticky-note {
+        width: 100%;
+        max-width: none;
+    }
+
+    .notes-board .sticky-note.add-new {
+        width: 100%;
+    }
+}

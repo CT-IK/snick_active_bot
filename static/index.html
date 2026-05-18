@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker - Управление задачами</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Навбар -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="/" class="nav-logo">
+                    <img src="/static/hsm_logo.svg" alt="HSM" class="nav-logo-img">
+                </a>
+                <div class="nav-actions">
+                    <span id="user-info" class="user-info"></span>
+                    <button id="test-tg-btn" class="btn btn-sm btn-secondary" style="display: none;" title="Проверить отправку в Telegram">Тест TG</button>
+                    <button id="logout-btn" class="btn btn-secondary" style="display: none;">Выйти</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Контент -->
+        <div class="container">
+            <!-- Форма входа -->
+            <div id="login-section" class="login-section">
+                <div class="login-card">
+                    <h2>Вход в систему</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login">Логин</label>
+                            <input type="text" id="login" name="login" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Пароль</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Основное приложение -->
+            <div id="app-section" style="display: none;">
+                <!-- Табы -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="tasks">Задачи</button>
+                    <button class="tab-btn" data-tab="timeline">Таймлайн</button>
+                    <button class="tab-btn" data-tab="workgroups">Рабочие группы</button>
+                    <button class="tab-btn" data-tab="users">Пользователи</button>
+                    <button class="tab-btn" data-tab="notes">Шоб не забыть</button>
+                </div>
+
+                <!-- Вкладка Задачи -->
+                <div id="tab-tasks" class="tab-content active">
+                    <div class="section-header">
+                        <h2>Задачи</h2>
+                        <button id="create-task-btn" class="btn btn-primary">Создать задачу</button>
+                    </div>
+                    <div id="tasks-list" class="cards-grid"></div>
+                </div>
+
+                <!-- Вкладка Таймлайн -->
+                <div id="tab-timeline" class="tab-content">
+                    <div class="section-header">
+                        <h2>Таймлайн задач</h2>
+                        <div class="timeline-filters">
+                            <label>Группа: <select id="timeline-wg-filter"><option value="">Все</option></select></label>
+                        </div>
+                    </div>
+                    <div id="timeline-list" class="timeline-list"></div>
+                </div>
+
+                <!-- Вкладка Рабочие группы -->
+                <div id="tab-workgroups" class="tab-content">
+                    <div class="section-header">
+                        <h2>Рабочие группы</h2>
+                        <button id="create-workgroup-btn" class="btn btn-primary">Создать группу</button>
+                    </div>
+                    <div id="workgroups-list" class="cards-grid"></div>
+                </div>
+
+                <!-- Вкладка Пользователи -->
+                <div id="tab-users" class="tab-content">
+                    <div class="section-header">
+                        <h2>Пользователи</h2>
+                        <button id="create-user-btn" class="btn btn-primary">Создать пользователя</button>
+                    </div>
+                    <div id="users-list" class="cards-grid"></div>
+                </div>
+
+                <!-- Вкладка Шоб не забыть (заметки) -->
+                <div id="tab-notes" class="tab-content">
+                    <div class="section-header">
+                        <h2>Шоб не забыть</h2>
+                        <button id="add-note-btn" class="btn btn-primary">+ Добавить заметку</button>
+                    </div>
+                    <div id="notes-board" class="notes-board"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальные окна -->
+    <div id="modal-overlay" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Модальное окно</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
