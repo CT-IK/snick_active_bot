@@ -45,10 +45,17 @@ async def startup_event():
     """Инициализация при запуске"""
     import asyncio
     from services.task_poll_scheduler import poll_scheduler_loop
-    from services.telegram_bot_poller import bot_updates_loop
+    from services.bot import start_bot
     await init_db()
     asyncio.create_task(poll_scheduler_loop())
-    asyncio.create_task(bot_updates_loop())
+    await start_bot()
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Корректная остановка фоновых сервисов"""
+    from services.bot import stop_bot
+    await stop_bot()
 
 
 # Статические файлы для фронтенда

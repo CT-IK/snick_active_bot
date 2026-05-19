@@ -7,7 +7,7 @@ from dao.user_dao import UserDAO
 from schemas.user import UserCreate, UserUpdate, UserResponse, UserWithHierarchy
 from api.dependencies import get_current_user, require_role, get_db
 from utils.auth import get_password_hash
-from services.telegram_notify import notify_role_assigned, ROLE_NAMES
+from services.bot import notify_role_assigned, ROLE_NAMES
 
 router = APIRouter(prefix="/api/users", tags=["users"])
 
@@ -26,8 +26,8 @@ async def test_telegram(current_user: User = Depends(get_current_user)):
             status_code=400,
             detail="У вас не указан Telegram ID. Отредактируйте профиль и добавьте его."
         )
-    from services.telegram_notify import send_telegram_message
-    ok = await send_telegram_message(
+    from services.bot import send_message
+    ok = await send_message(
         current_user.telegram_id,
         "🔔 <b>Тест</b>\n\nСообщение от Task Tracker. Если вы это видите — уведомления настроены верно!"
     )

@@ -1,7 +1,7 @@
 # Схема базы данных
 
 Task Tracker (HSM) — SQLite, async SQLAlchemy 2.0. Таблицы создаются автоматически
-из ORM-моделей ([database/models.py](database/models.py)) при старте приложения.
+из ORM-моделей ([database/models.py](../database/models.py)) при старте приложения.
 
 ## ER-диаграмма
 
@@ -146,6 +146,6 @@ erDiagram
   остаётся пустой (потенциальная точка для будущего аудита истории).
 - Колонки опроса (`poll_interval_days`, `poll_time`, `last_polled_at`,
   `task_poll_responses.status_at_poll`) добавляются миграцией `ALTER TABLE` в
-  [database/database.py](database/database.py) для совместимости со старыми БД.
+  [database/database.py](../database/database.py) для совместимости со старыми БД.
 - Заметки вкладки «Шоб не забыть» в БД **не хранятся** — они живут только в
   `localStorage` браузера.

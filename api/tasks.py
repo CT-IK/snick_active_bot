@@ -12,7 +12,7 @@ from dao.user_dao import UserDAO
 from schemas.task import TaskCreate, TaskUpdate, TaskResponse, TaskWithRelations
 from schemas.user import UserResponse
 from api.dependencies import get_current_user, get_db
-from services.telegram_notify import notify_task_assigned, notify_task_poll
+from services.bot import notify_task_assigned, notify_task_poll
 
 router = APIRouter(prefix="/api/tasks", tags=["tasks"])
 

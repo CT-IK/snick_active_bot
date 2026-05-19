@@ -1,22 +1,19 @@
+# ── Task Tracker · базовая конфигурация ─────────────────────────────────────
+# Общая часть для локальной разработки и продакшена. Отдельно не запускается.
+#
+#   Локально:   docker compose up --build
+#               (docker-compose.override.yml подхватывается автоматически)
+#
+#   Продакшен:  docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+# ────────────────────────────────────────────────────────────────────────────
 services:
   web:
     build: .
+    image: task-tracker:latest
     container_name: task-tracker-web
-    ports:
-      - "8004:8000"
     volumes:
+      # БД SQLite лежит на хосте — переживает пересборку контейнера
       - ./database:/app/database
-      - ./static:/app/static
-      - .:/app
-    environment:
-      - JWT_SECRET_KEY=test-secret-key-change-in-production
-      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
-    restart: unless-stopped
-    command: >
-      sh -c "
-        python init_db.py || true &&
-        uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-      "
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
       interval: 30s

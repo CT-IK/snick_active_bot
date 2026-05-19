@@ -1,0 +1,15 @@
+# ── Локальная разработка ────────────────────────────────────────────────────
+# Подхватывается АВТОМАТИЧЕСКИ командой `docker compose up`.
+# Hot-reload, монтирование исходников, безопасный dev-секрет.
+# ────────────────────────────────────────────────────────────────────────────
+services:
+  web:
+    ports:
+      - "8004:8000"               # приложение: http://localhost:8004
+    volumes:
+      - .:/app                    # живой код — правки видны без пересборки
+    environment:
+      JWT_SECRET_KEY: "dev-secret-not-for-production"
+      TELEGRAM_BOT_TOKEN: "${TELEGRAM_BOT_TOKEN:-}"
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped

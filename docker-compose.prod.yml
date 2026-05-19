@@ -1,0 +1,23 @@
+# ── Продакшен ───────────────────────────────────────────────────────────────
+# Запуск:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+#
+# Переменные (из окружения shell или файла .env рядом с compose-файлами):
+#   JWT_SECRET_KEY     — ОБЯЗАТЕЛЕН, длинная случайная строка
+#   TELEGRAM_BOT_TOKEN — токен бота (пусто = бот отключён)
+#   APP_PORT           — порт на хосте (по умолчанию 8000)
+#
+# ВАЖНО: бот и планировщик работают внутри процесса приложения — запускать
+# строго в ОДИН процесс (без uvicorn --workers), иначе Telegram getUpdates
+# будет конфликтовать между воркерами.
+# ────────────────────────────────────────────────────────────────────────────
+services:
+  web:
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      JWT_SECRET_KEY: "${JWT_SECRET_KEY:?JWT_SECRET_KEY обязателен в продакшене}"
+      TELEGRAM_BOT_TOKEN: "${TELEGRAM_BOT_TOKEN:-}"
+    restart: always
+    # Код и статика берутся из образа (Dockerfile: COPY . .), volume с
+    # исходниками не монтируется. Команда — CMD из Dockerfile (uvicorn без --reload).

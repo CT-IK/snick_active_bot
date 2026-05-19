@@ -6,7 +6,7 @@ from database.database import AsyncSessionLocal
 from database.models import Task, TaskStatusEnum, TaskPollResponse
 from dao.task_dao import TaskDAO
 from dao.user_dao import UserDAO
-from services.telegram_notify import notify_task_poll
+from services.bot import notify_task_poll
 
 logger = logging.getLogger(__name__)
 
